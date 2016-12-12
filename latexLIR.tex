@@ -34,7 +34,7 @@
 \begin{center}
 \large{Роман Андрій}\\
 \large{Зварич Андрій}\\
-\large{\textbf{Чисельне розв'язування мішаної для рівнняння Лапласа методом ІР}}\\
+\large{\textbf{Чисельне розв'язування мішаної задачі для рівнняння Лапласа методом ІР}}\\
 \large{Звіт}\\
 \end{center}
 \normalsize \vspace*{3cm}
@@ -295,17 +295,17 @@ S:C^{0,\alpha}(\Gamma)\to C^{1,\alpha}(\Gamma)
 \mu_{i}(t)=\varphi(x_{i}(t))|x_{i}'(t)|-2\pi\textup{-періодична функція}, \quad i=1,2,
 \end{equation*}
 \begin{equation*}
-g_{1}(t)=f_{i}(x_{i}(t))-u_1(x_{i}(t)),\\
-g_{2}(t)=f_{i}(x_{i}(t))-u_1(x_{i}(t)),\\
+g_{1}(t)=f_{0}(x_{i}(t))-u_1(x_{i}(t)),\\
+g_{2}(t)=f_{0}(x_{i}(t))-\frac{\partial u_1(x_{i}(t))}{\partial\nu},\\
 \end{equation*}
 \begin{equation*}
-L_{1}(t,\tau)=2\pi G(x_1(t),x_2(\tau))
+L_{1}(t,\tau)=2\pi N(x_1(t),x_2(\tau))
 \end{equation*}
 \begin{equation*}
-L_{2}(t,\tau)=2\pi G(x_2(t),x_1(\tau))
+L_{2}(t,\tau)=2\pi N(x_2(t),x_1(\tau))
 \end{equation*}
 \begin{equation*}
-H_{i}(t,\tau)=2\pi G(x_i(t),x_i(\tau)), \quad i=1,2.
+H_{i}(t,\tau)=2\pi N(x_i(t),x_i(\tau)), \quad i=1,2.
 \end{equation*}
 \hspace*{\parindent}Ядра $H_{i}(t,\tau)$ мають логарифмічну особливість при $t=\tau$. Для виділення цієї особливості, подамо ядра в такому вигляді:
 \begin{equation*}
@@ -316,9 +316,9 @@ H_{i}(t,\tau)=H_{i1}(t,\tau)\ln{\frac{4}{e}\sin^2\frac{t-\tau}{2}}+H_{i2}(t,\tau
 H_{i2}(t,\tau)=\left\{
 \begin{array}{l}
 \displaystyle
-\frac{1}{2}\ln{\frac{4\sin^2\frac{t-\tau}{2}}{e|x_{i}(t)-x_{i}(\tau)|^2}}+\tilde{G}(x_{i}(t),x_{i}(\tau)), \quad t\neq\tau\\ \\
+\frac{1}{2}\ln{\frac{4\sin^2\frac{t-\tau}{2}}{e|x_{i}(t)-x_{i}(\tau)|^2}}+\tilde{N}(x_{i}(t),x_{i}(\tau)), \quad t\neq\tau\\ \\
 \displaystyle
-\frac{1}{2}\ln{\frac{1}{e|x_{i}'(\tau)|^2}}+\tilde{G}(x_{i}(\tau),x_{i}(\tau)), \quad t=\tau.
+\frac{1}{2}\ln{\frac{1}{e|x_{i}'(\tau)|^2}}+\tilde{N}(x_{i}(\tau),x_{i}(\tau)), \quad t=\tau.
 \end{array}
 \right.
 \end{equation*}
