@@ -233,40 +233,52 @@ u(x) = \int\limits_{\Gamma_{1}} \, \varphi_{1}(y)N(x,y)ds(y)+\int\limits_{\Gamma
 %########################################################################################################################################################################################################################################################################################################################################################################################################################################################################
 %ПОМІНЯТИ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 \newpage
-\section{Коректність інтегральних рівнянь у просторах Банаха}
-\begin{determination}
-Дійсна або комплекснозначна функція $f$, визначена на $D\subset\mathbb{R}^{m}$, називається рівномірно неперервною за Гьольдером з показником $0<\alpha\le 1$, якщо існує стала $C>0$:
-\begin{equation*}
-|f(x)-f(y)|\le C|x-y|^{\alpha}, \quad x,y\in D.
-\end{equation*}
-\hspace*{\parindent}Позначимо через $C^{0,\alpha}(D)$- лінійний простір всіх функцій, які є обмеженими і рівномірно неперервними. Простір $C^{0,\alpha}(D)$ є простором Гьольдера.
-\end{determination}
+\section{Коректність отриманих інтегральних рівнянь}
 \begin{theorem}
-Простір Гьольдера $C^{0,\alpha}(D)$ є Банаховим простором з нормою
+Потенціал подвійного шару з $\varphi \in C(\partial D)$
 \begin{equation*}
-\Vert f\Vert_{\alpha}:=\sup\limits_{x\in D}|f(x)|+\sup\limits_{\substack{x,y\in D, \\ x\neq y}}\frac{|f(x)-f(y)|}{|x-y|^{\alpha}}.
+u(x) = \int\limits_{\partial D} \, \varphi(y) \bigg(\frac{\partial F(x,y)}{\partial \nu} + \frac{1}{|x|^{m-2}}\bigg)ds(y), x \in R^m \ D
 \end{equation*}
+\\ з $\varphi$ є розв'язком зовнішьої задачі Діріхле, якщо $\varphi$ є розв'язком інтегрального рівняння другого роду.
+\begin{equation}
+\varphi(x) + 2\int\limits_{\partial D} \, \varphi(y) \bigg(\frac{\partial F(x,y)}{\partial \nu} + \frac{1}{|x|^(m-2)}\bigg)ds(y) = 2f(x), x \in R^m \ D
+\end{equation}
 \end{theorem}
-\hspace*{\parindent}Розглянемо оператор
-\begin{equation*}
-(S\varphi)(x)=\int\limits_{\Gamma}{\varphi(y)N(x,y)}ds(y), \quad x\in\Gamma.
-\end{equation*}
+%add single solution theorem
+
+
 \begin{theorem}
-Оператор
+Потенціал простого шару з $\varphi \in C(\partial D)$
 \begin{equation*}
-S:C^{0,\alpha}(\Gamma)\to C^{1,\alpha}(\Gamma)
+u(x) = \int\limits_{\partial D} \, \varphi(y) F(x,y)ds(y), x \in  D
 \end{equation*}
-є обмеженим і самоспряженим відносно відповідних дуальних систем.
+\\ з $\varphi$ є розв'язком внутрішньої задачі Неймана, якщо $\varphi$ є розв'язком інтегрального рівняння другого роду.
+\begin{equation}
+\varphi(x) + 2\int\limits_{\partial D} \, \varphi(y) (\frac{\partial F(x,y)}{\partial \nu})ds(y) = 2f(x), x \in \partial D
+\end{equation}
 \end{theorem}
 \begin{theorem}
-Для будь-якої функції $f\in C(\Gamma)$ існує єдине інтегральне рівняння першого роду задач Діріхле з єдиним розв'язком $\varphi\in C^{0,\alpha}(\Gamma)$. 
-\end{theorem}
-Отже, для нашого випадку справедливим буде наступне твердження.
-\begin{theorem}
-Для будь-яких $f_{1}$, $f_{2}$ існують єдиним чином визначені густини $\varphi_{1}$, $\varphi_{2}$. Тобто існує єдиний розв'язок системи (2.7), який неперервно залежить від вхідних даних.
+Внутрішня задача Неймана є розв'язною тоді і лише тоді, якщо
+\begin{equation*}
+\int\limits_{\partial D} \, f(y)ds(y) = 0
+\end{equation*}
 \end{theorem}
 
 
+\begin{theorem}
+Потенціал простого шару з $\varphi \in C(\partial D)$
+\begin{equation*}
+u(x) = \int\limits_{\partial D} \, \varphi(y) F(x,y)ds(y), \varphi \in R^m \ D
+\end{equation*}
+\\ з $\varphi$ є розв'язком зовнішньої задачі Неймана, якщо $\varphi$ є розв'язком інтегрального рівняння другого роду.
+\begin{equation}
+\varphi(x) - 2\int\limits_{\partial D} \, \varphi(y) (\frac{\partial F(x,y)}{\partial \nu})ds(y) = -2f(x), x \in \partial D
+\end{equation}
+та при m = 2 :
+\begin{equation}
+\int\limits_{\partial D} \, \varphi(y) ds(y) = 0
+\end{equation}
+\end{theorem}
 %################################################################################################################################################################################################################################################################################################################################################################################################################################################################
 \section{Параметризація та виділення особливості}
 \hspace*{\parindent}Нехай границі $\Gamma_{0}$, $\Gamma_{1}$ та $\Gamma_{2}\in C^{2}$ задаються параметрично:
