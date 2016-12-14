@@ -29,7 +29,7 @@
 \hspace*{11cm}Завідувач кафедри\\
 \hspace*{11cm}\underline{\hspace{3cm}}\\
 \hspace*{11cm}проф. Хапко Р.С.\\
-\hspace*{11cm}"\underline{\hspace{0.5cm}}"\underline{\hspace{2cm}} 2015 р.
+\hspace*{11cm}"\underline{\hspace{0.5cm}}"\underline{\hspace{2cm}} 2016 р.
 \normalsize \vspace*{2cm}
 \begin{center}
 \large{Роман Андрій}\\
@@ -48,7 +48,7 @@
 \\
 \\
 \\
-\large\centerline{Львів 2015}
+\large\centerline{Львів 2016}
 %!!!!!!!!!!!!!!!!!!!!!!!!сторінка змісту!!!!!!!!!!!!!!!!!!!!!
 \tableofcontents
 %!!!!!!!!!!!!!!!текст курсової!!!!!!!!!!!!!!!!!!!!!!!!
@@ -207,11 +207,11 @@ u_{1}(x) = \int\limits_{\Gamma_{0}} \, f_{0}(y)N(x,y) ds(y).
 \end{equation}
 \hspace*{\parindent}Розв'язок задачі (2.3):
 \begin{equation}
-u_{2}(x) = \int\limits_{\Gamma_{1}} \, \varphi_{1}(y)N(x,y)ds(y)+\int\limits_{\Gamma_{2}} \, \varphi_{2}(y)\frac{\partial N(x,y)}{\partial\nu}ds(y). 
+u_{2}(x) = \int\limits_{\Gamma_{1}} \, \varphi_{1}(y)N(x,y)ds(y)+\int\limits_{\Gamma_{2}} \, \varphi_{2}(y)\bigg(\frac{\partial N(x,y)}{\partial\nu} + 1\bigg)ds(y). 
 \end{equation}
 \hspace*{\parindent}Тоді розв'язок задачі (1.1)-(1.2) можна подати у вигляді лінійної комбінації потенціалів:
 \begin{equation}
-u(x) = \int\limits_{\Gamma_{1}} \, \varphi_{1}(y)N(x,y)ds(y)+\int\limits_{\Gamma_{2}} \, \varphi_{2}(y)\frac{\partial N(x,y)}{\partial\nu}ds(y)+
+u(x) = \int\limits_{\Gamma_{1}} \, \varphi_{1}(y)N(x,y)ds(y)+\int\limits_{\Gamma_{2}} \, \varphi_{2}(y)\bigg(\frac{\partial N(x,y)}{\partial\nu} + 1\bigg)ds(y)+
 \end{equation}
 \begin{equation*}
 +\int\limits_{\Gamma_{0}} \, f_{0}(y)N(x,y) ds(y), \quad x \in D,
@@ -221,10 +221,10 @@ u(x) = \int\limits_{\Gamma_{1}} \, \varphi_{1}(y)N(x,y)ds(y)+\int\limits_{\Gamma
  \left\{
 \begin{array}{c}
    \displaystyle
-\frac{1}{2}\varphi_{1}(x) + \int\limits_{\Gamma_1} \, \varphi_1(y)N(x,y)ds(y)+\int\limits_{\Gamma_2} \, \varphi_2(y)\frac{\partial N(x,y)}{\partial\nu}ds(y)=f_1(x)-\frac{\partial u_{1}(x)}{\partial\nu},\\ \quad x\in \Gamma_1,\\
+\frac{1}{2}\varphi_{1}(x) + \int\limits_{\Gamma_1} \, \varphi_1(y)N(x,y)ds(y)+\int\limits_{\Gamma_2} \, \varphi_2(y)\bigg(\frac{\partial N(x,y)}{\partial\nu} + 1\bigg)ds(y)=f_1(x)-\frac{\partial u_{1}(x)}{\partial\nu},\\ \quad x\in \Gamma_1,\\
 
 	\displaystyle
-  -\frac{1}{2}\varphi_{2}(x) + \int\limits_{\Gamma_1} \, \varphi_1(y)N(x,y)ds(y)+\int\limits_{\Gamma_2} \, \varphi_2(y)\frac{\partial N(x,y)}{\partial\nu}ds(y)=f_2(x)-u_{1}(x),\\ \quad x\in \Gamma_2,
+  -\frac{1}{2}\varphi_{2}(x) + \int\limits_{\Gamma_1} \, \varphi_1(y)N(x,y)ds(y)+\int\limits_{\Gamma_2} \, \varphi_2(y)\bigg(\frac{\partial N(x,y)}{\partial\nu} + 1\bigg)ds(y)=f_2(x)-u_{1}(x),\\ \quad x\in \Gamma_2,
  \end{array}
 \right.
 \end{equation}
@@ -237,11 +237,11 @@ u(x) = \int\limits_{\Gamma_{1}} \, \varphi_{1}(y)N(x,y)ds(y)+\int\limits_{\Gamma
 \begin{theorem}
 Потенціал подвійного шару з $\varphi \in C(\partial D)$
 \begin{equation*}
-u(x) = \int\limits_{\partial D} \, \varphi(y) \bigg(\frac{\partial F(x,y)}{\partial \nu} + \frac{1}{|x|^{m-2}}\bigg)ds(y), x \in R^m \ D
+u(x) = \int\limits_{\partial D} \, \varphi(y) \bigg(\frac{\partial F(x,y)}{\partial \nu} + \frac{1}{|x|^{m-2}}\bigg)ds(y), x \in R^m \setminus D
 \end{equation*}
 \\ з $\varphi$ є розв'язком зовнішьої задачі Діріхле, якщо $\varphi$ є розв'язком інтегрального рівняння другого роду.
 \begin{equation}
-\varphi(x) + 2\int\limits_{\partial D} \, \varphi(y) \bigg(\frac{\partial F(x,y)}{\partial \nu} + \frac{1}{|x|^(m-2)}\bigg)ds(y) = 2f(x), x \in R^m \ D
+\varphi(x) + 2\int\limits_{\partial D} \, \varphi(y) \bigg(\frac{\partial F(x,y)}{\partial \nu} + \frac{1}{|x|^{m-2}}\bigg)ds(y) = 2f(x), x \in R^m \setminus D
 \end{equation}
 \end{theorem}
 %add single solution theorem
@@ -268,7 +268,7 @@ u(x) = \int\limits_{\partial D} \, \varphi(y) F(x,y)ds(y), x \in  D
 \begin{theorem}
 Потенціал простого шару з $\varphi \in C(\partial D)$
 \begin{equation*}
-u(x) = \int\limits_{\partial D} \, \varphi(y) F(x,y)ds(y), \varphi \in R^m \ D
+u(x) = \int\limits_{\partial D} \, \varphi(y) F(x,y)ds(y), \varphi \in R^m \setminus D
 \end{equation*}
 \\ з $\varphi$ є розв'язком зовнішньої задачі Неймана, якщо $\varphi$ є розв'язком інтегрального рівняння другого роду.
 \begin{equation}
@@ -291,9 +291,9 @@ u(x) = \int\limits_{\partial D} \, \varphi(y) F(x,y)ds(y), \varphi \in R^m \ D
 \left\{
 \begin{array}{c}
 \displaystyle
-\frac{1}{2\pi}\mu_1(t) + \frac{1}{2\pi}\int\limits_{0}^{2\pi} \, \mu_1 (\tau)H_{1}(t,\tau)d\tau+\frac{1}{2\pi}\int\limits_{0}^{2\pi} \, \mu_2 (\tau)\frac{\partial L_1(t,\tau)}{\partial\nu}d\tau=g_1(t),\\ t\in [0, 2\pi]\\
+\frac{1}{2}\mu_1(t) + \frac{1}{2\pi}\int\limits_{0}^{2\pi} \, \mu_1 (\tau)H_{1}(t,\tau)d\tau+\frac{1}{2\pi}\int\limits_{0}^{2\pi} \, \mu_2 (\tau)\bigg(\frac{\partial L_1(t,\tau)}{\partial\nu} + 1\bigg)d\tau=g_1(t),\\ t\in [0, 2\pi]\\
 \displaystyle
--\frac{1}{2\pi}\mu_2(t) + \frac{1}{2\pi}\int\limits_{0}^{2\pi} \, \mu_1 (\tau)L_{2}(t,\tau)d\tau+\frac{1}{2\pi}\int\limits_{0}^{2\pi} \, \mu_2 (\tau)\frac{\partial H_2(t,\tau)}{\partial\nu}d\tau=g_2(t),\\ t\in [0, 2\pi]
+-\frac{1}{2}\mu_2(t) + \frac{1}{2\pi}\int\limits_{0}^{2\pi} \, \mu_1 (\tau)L_{2}(t,\tau)d\tau+\frac{1}{2\pi}\int\limits_{0}^{2\pi} \, \mu_2 (\tau)\bigg(\frac{\partial L_1(t,\tau)}{\partial\nu} + 1\bigg)d\tau=g_2(t),\\ t\in [0, 2\pi]
 \end{array}
 \right.
 \end{equation}
@@ -334,11 +334,11 @@ H_{i2}(t,\tau)=\left\{
 \left\{
 \begin{array}{c}
 \displaystyle
-\frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu_1(\tau)\Big[H_{11}(t,\tau)\ln{\Big(\frac{4}{e}\sin^2\frac{t-\tau}{2}\Big)}+H_{12}(t,\tau)\Big]d\tau+\\
+\frac{1}{2}\mu_1(t) + \frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu_1(\tau)\Big[H_{11}(t,\tau)\ln{\Big(\frac{4}{e}\sin^2\frac{t-\tau}{2}\Big)}+H_{12}(t,\tau)\Big]d\tau+\\
 \displaystyle
 +\frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu_2(\tau)L_{1}(t,\tau)d\tau=g_1(t),\quad  t \in [0, 2\pi]\\
 \displaystyle
-\frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu_1(\tau)L_{2}(t,\tau)d\tau+\frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu_2 (\tau)\Big[H_{21}(t,\tau)\ln{\Big(\frac{4}{e}\sin^2\frac{t-\tau}{2}\Big)}+\\
+-\frac{1}{2}\mu_2(t) + \frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu_1(\tau)L_{2}(t,\tau)d\tau+\frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu_2 (\tau)\Big[H_{21}(t,\tau)\ln{\Big(\frac{4}{e}\sin^2\frac{t-\tau}{2}\Big)}+\\
 \displaystyle
 +H_{22}(t,\tau)\Big]d\tau=g_2(t),\quad  t \in [0, 2\pi]
 \end{array}
@@ -365,11 +365,11 @@ R_{j}(t) = -\frac{1}{2n}\Big[1+2\sum\limits_{m=1}^{n-1}{\frac{1}{m}\cos{m(t-t_{j
 \left\{
 \begin{array}{c}
 \displaystyle
-\sum\limits_{j=0}^{2n-1} \mu_1(t_j)\Big[H_{11}(t_k,t_j)R_j(t_k)+\frac{1}{2n}H_{12}(t_k,t_j)\Big]+\frac{1}{2n}\sum\limits_{j=0}^{2n-1} \mu_2(t_j)L_1(t_k,t_j)=\\
+\frac{1}{2}\mu_1(t) + \sum\limits_{j=0}^{2n-1} \mu_1(t_j)\Big[H_{11}(t_k,t_j)R_j(t_k)+\frac{1}{2n}H_{12}(t_k,t_j)\Big]+\frac{1}{2n}\sum\limits_{j=0}^{2n-1} \mu_2(t_j)\bigg(\frac{\partial L_1(t_k,t_j)}{\partial \nu} + 1\bigg)=\\
 \displaystyle
 =g_1(t_k), \quad k=0,...,2n-1\\
 \displaystyle
-\frac{1}{2n}\sum\limits_{j=0}^{2n-1} \mu_1(t_j)L_2(t_k,t_j)+\sum\limits_{j=0}^{2n-1} \mu_2(t_j)\Big[H_{21}(t_k,t_j)R_j(t_k)+\frac{1}{2n}H_{22}(t_k,t_j)\Big]=\\
+-\frac{1}{2}\mu_2(t) + \frac{1}{2n}\sum\limits_{j=0}^{2n-1} \mu_1(t_j)L_2(t_k,t_j)+\sum\limits_{j=0}^{2n-1} \mu_2(t_j)\bigg(\frac{\partial}{\partial \nu}\Big[H_{21}(t_k,t_j)R_j(t_k)+\frac{1}{2n}H_{22}(t_k,t_j)\Big] + 1 \bigg)=\\
 \displaystyle
 =g_2(t_k), \quad k=0,...,2n-1
 \end{array}
@@ -388,19 +388,41 @@ R_{T}(f)=\frac{1}{2\pi}\int\limits_{0}^{2\pi}f(t)dt-\frac{1}{2n}\sum\limits_{j=0
 де $C$, $\sigma>0$ -- константи, залежні від f. 
 \end{theorem}
 \hspace*{\parindent}Запишемо інтегральні оператори:
+
 \begin{equation*}
-(S_{i}\mu)(\tau)=\frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu(\tau)\Big[H_{i1}(t,\tau)\ln{\frac{4}{e}\sin^2\frac{t-\tau}{2}}+H_{i2}(t,\tau)\Big]d\tau \quad i=1,2
+(S_{1}\mu)(\tau)=\frac{1}{2}\mu_1(t) + \frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu(\tau)\Big[H_{11}(t,\tau)\ln{\frac{4}{e}\sin^2\frac{t-\tau}{2}}+H_{12}(t,\tau)\Big]d\tau
 \end{equation*}
+
 \begin{equation*}
-(T_{i}\mu)(\tau)=\frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu(\tau)L_{i}(t,\tau)d\tau \quad i=1,2
+(T_{1}\mu)(\tau)=\frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu(\tau)\bigg(\frac{\partial L_{1}(t,\tau)}{\partial \nu} + 1\bigg)d\tau
 \end{equation*}
+
+\begin{equation*}
+(S_{2}\mu)(\tau)=-\frac{1}{2}\mu_2(t) + \frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu(\tau)\bigg(\frac{\partial}{\partial\nu}\Big[H_{21}(t,\tau)\ln{\frac{4}{e}\sin^2\frac{t-\tau}{2}}+H_{22}(t,\tau)\Big] + 1\bigg)d\tau
+\end{equation*}
+
+\begin{equation*}
+(T_{2}\mu)(\tau)=\frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu(\tau)L_{2}(t,\tau)d\tau
+\end{equation*}
+
+
 та відповідні їм послідовності квадратурних операторів:
 \begin{equation*}
-(S_{i,n}\mu)(t)=\sum\limits_{j=0}^{2n-1} \mu(t_{j})\Big[H_{i1}(t,t_j)R_j(t)+\frac{1}{2n}H_{i2}(t,t_j)\Big], \quad i=1,2 \quad t\in[0;2\pi]
+(S_{1,n}\mu)(t)=\frac{1}{2}\mu_1(t)+\sum\limits_{j=0}^{2n-1} \mu(t_{j})\Big[H_{11}(t,t_j)R_j(t)+\frac{1}{2n}H_{12}(t,t_j)\Big], \quad t\in[0;2\pi]
 \end{equation*}
+
 \begin{equation*}
-(T_{i,n}\mu)(t)=\frac{1}{2n}\sum\limits_{j=0}^{2n-1}\mu(t_j)L_{i}(t,t_j), \quad i=1,2, \quad t\in[0;2\pi]
+(S_{2,n}\mu)(t)=-\frac{1}{2}\mu_2(t)\sum\limits_{j=0}^{2n-1} \mu(t_{j})\bigg(\frac{\partial}{\partial\nu}\Big[H_{21}(t,t_j)R_j(t)+\frac{1}{2n}H_{22}(t,t_j)\Big] + 1\bigg), \quad t\in[0;2\pi]
 \end{equation*}
+
+\begin{equation*}
+(T_{1,n}\mu)(t)=\frac{1}{2n}\sum\limits_{j=0}^{2n-1}\mu(t_j)\bigg(\frac{\partial}{\partial\nu}L_{1}(t,t_j) + 1\bigg), \quad t\in[0;2\pi]
+\end{equation*}
+
+\begin{equation*}
+(T_{2,n}\mu)(t)=\frac{1}{2n}\sum\limits_{j=0}^{2n-1}\mu(t_j)L_{2}(t,t_j), \quad t\in[0;2\pi]
+\end{equation*}
+
 \hspace*{\parindent}Нехай оператори $A$ та $A_{n}$ задають системи рівнянь:
 \begin{equation*}
 A=\left[
