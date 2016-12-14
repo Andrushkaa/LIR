@@ -5,16 +5,15 @@
 %\usepackage[utf8]{inputenc}
 \usepackage[ukrainian]{babel}
 \usepackage{amsfonts,amsmath}
+\usepackage[pdftex]{graphicx}
 %\usepackage{amsthm}
 \usepackage{makeidx,bezier,latexsym,epsfig,layout}
 \textheight 22.5 cm \textwidth 16 cm \topmargin -1 cm
 \evensidemargin 0 cm \oddsidemargin 0 cm
-
 \newtheorem{theorem}{\textbf{Теорема}}[chapter]
 %\newtheorem{proof}{\textbf{Дов.:}}
 \newtheorem{lema}[theorem]{\textbf{Лема}}
 \newtheorem{determination}[theorem]{\textbf{Означення}}
-
 \begin{document}
 %!!!!!!!!!!!!!!!!!!!!!!!! титульна !!!!!!!!!!!!!!!!!!!!!
 \titlepage
@@ -58,10 +57,7 @@
 найважливiших сфер застосування методу iнтегральних рiвнянь. Цей метод має низку
 незаперечних переваг у порiвняннi з iншими методами, а саме: зменшення розмiрностi
 задачi на одиницю, застосовнiсть для областей з границями довiльної форми i частково
-необмежених областей тощо. Саме тому цей метод з успiхом використовується для
-вирiшення складних iнженерних задач - плоских i просторових, стацiонарних та
-нестацiонарних, в механiцi руйнувань гiрських порiд, теорiї теплопровiдностi, а також
-в рiзних задачах геофiзики, електродинамiки тощо.\\
+необмежених областей, наближений роз'язок точно задовольняє диференційне рівняння.\\
 \hspace*{\parindent}Метою даної роботи є навчитися чисельно розв’язувати крайовi задачi для
 рiвняння Лапласа у обмеженій області. Планується довести єдинiсть класичного
 розв’язку поставленої задачi. Будемо застосовувати непрямий метод iнтегральних рiвнянь. Також потрiбно
@@ -77,18 +73,19 @@
 \Delta u=0\text{ в }D
 \end{equation}
 і граничні умови 
+
 \begin{equation}
 		u = f_2 \mbox{  на  }  \Gamma_2 ,\quad
 		\frac{\partial u}{\partial \nu} = f_1 \mbox{  на  }  \Gamma_1 ,\quad
 		\frac{\partial u}{\partial \nu} = f_0 \mbox{  на  } \Gamma_0 ,\quad
 \end{equation}
 
-Тут $f_0$, $f_1$, $f_2$ - задані функції.\\
-\begin{figure}[h]
-\center{\includegraphics[scale=0.8]{pict1}}
+Тут $f_0$, $f_1$, $f_2$ - задані функції.
+\begin{figure}[htb]
+\center{\includegraphics[scale=0.5]{draw}}%[scale=0.8]
 \caption{Геометрія області}
 \label{fig:image}
-\end{figure}\\
+\end{figure}
 
 %####################################################################################################################################################################################################################################################################################################################################################################################################################
 
@@ -244,7 +241,10 @@ u(x) = \int\limits_{\partial D} \, \varphi(y) \bigg(\frac{\partial F(x,y)}{\part
 \varphi(x) + 2\int\limits_{\partial D} \, \varphi(y) \bigg(\frac{\partial F(x,y)}{\partial \nu} + \frac{1}{|x|^{m-2}}\bigg)ds(y) = 2f(x), x \in R^m \setminus D
 \end{equation}
 \end{theorem}
-%add single solution theorem
+
+\begin{theorem}
+Зовнішня задача Діріхле має щонайбільше один розв'язок.
+\end{theorem}
 
 
 \begin{theorem}
@@ -257,12 +257,19 @@ u(x) = \int\limits_{\partial D} \, \varphi(y) F(x,y)ds(y), x \in  D
 \varphi(x) + 2\int\limits_{\partial D} \, \varphi(y) (\frac{\partial F(x,y)}{\partial \nu})ds(y) = 2f(x), x \in \partial D
 \end{equation}
 \end{theorem}
+
+\begin{theorem}
+Два розв'язки внутрішньої задачі Неймана відрізняютсья на константу.
+Зовнішня задача Неймана має найбільше один розв'язок.
+\end{theorem}
+
 \begin{theorem}
 Внутрішня задача Неймана є розв'язною тоді і лише тоді, якщо
 \begin{equation*}
 \int\limits_{\partial D} \, f(y)ds(y) = 0
 \end{equation*}
 \end{theorem}
+
 
 
 \begin{theorem}
