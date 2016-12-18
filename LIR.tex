@@ -33,7 +33,7 @@
 \begin{center}
 \large{Роман Андрій}\\
 \large{Зварич Андрій}\\
-\large{\textbf{Чисельне розв'язування мішаної задачі для рівнняння Лапласа методом ІР}}\\
+\large{\textbf{Чисельне розв'язування мішаної задачі для рівнняння Лапласа методом інтегральних рівнянь}}\\
 \large{Звіт}\\
 \end{center}
 \normalsize \vspace*{3cm}
@@ -90,10 +90,10 @@
 %####################################################################################################################################################################################################################################################################################################################################################################################################################
 
 \section{Єдиність класичного розв'язку задачі}
-\begin{determination}
+\begin{determination}\cite{Kress}
 Двічі неперервно-диференційовна дійснозначна функція $u\in C^2(D)$, визначена в $D\subset\mathbb{R}^2$, називається гармонічною, якщо вона задовольняє рівняння Лапласа (1.1).
 \end{determination}
-\begin{theorem}
+\begin{theorem}\cite{Kress}
 Задача (1.1)-(1.2) має щонайбільше один розв'язок.
 \end{theorem}
 \textbf{Дов.}(Від супротивного). Нехай існують дві гармонічні функції $u_1$, $u_2$, які є різними розв'язками задачі (1.1)-(1.2). Очевидно, що $u=u_1-u_2$ - також гармонічна функція, яка рівна нулю на границі $D$ (оскільки $u_1=u_2$ на $\partial D$).\\
@@ -126,7 +126,7 @@ u\frac{\partial v}{\partial\nu}=0 \quad (u=0\text{ на }\partial D)
 
 
 \section{Потенціали та їх властивості}
-\begin{determination}
+\begin{determination}\cite{Kress}
 Нехай задана функція $\varphi\in C(\partial D)$, $D\subset\mathbb{R}^m$ - деяка область. Функції
 \begin{equation*}
 u(x) = \int\limits_{\partial{D}} \, \varphi(y)N(x,y) ds(y) , \quad x \in \mathbb{R}^m\setminus D
@@ -138,21 +138,21 @@ u(x) = \int\limits_{\partial{D}} \, \varphi(y)N(x,y) ds(y) , \quad x \in \mathbb
 називають відповідно потенціалом простого шару і потенціалом подвійного шару з неперервною густиною $\varphi$.
 \end{determination}
 \hspace*{\parindent}Для розв'язування граничних задач за допомогою потенціалів, необхідно дослідити їхню поведінку на границі $\partial{D}$, тому доцільно ввести наступні твердження.
-\begin{theorem}
+\begin{theorem}\cite{Kress}
 Нехай $\partial{D}\in C^2$, $\varphi\in C(\partial{D})$. Тоді потенціал простого шару $u$ з густиною $\varphi$ є неперервним в $\mathbb{R}^m$. На границі маємо:
 \begin{equation*}
 u(x) = \int\limits_{\partial{D}} \, \varphi(y)N(x,y) ds(y) , \quad x \in \partial D,
 \end{equation*}
 де інтеграл існує як невласний.
 \end{theorem}
-\begin{theorem}
+\begin{theorem}\cite{Kress}
 Нехай $\partial D\in C^2$ і $\varphi\in C(\partial D)$. Тоді потенціал подвійного шару $\upsilon$ з густиною $\varphi$ може бути неперервно продовжений з $D$ до $\bar{D}$ і з $\mathbb{R}^m\setminus\bar{D}$ до $\mathbb{R}^m\setminus D$ з граничними значеннями
 \begin{equation*}
 \upsilon_\pm(x) = \pm\frac{1}{2}\varphi(x)+\int\limits_{\partial{D}} \, \varphi(y)\frac{\partial N(x,y)}{\partial\nu(y)} ds(y) , \quad x \in \partial D,
 \end{equation*}
 де $\upsilon_\pm(x)=\lim\limits_{h \to 0}\upsilon(x\pm h\nu(x))$ і інтеграли існують як невласні. 
 \end{theorem}
-\begin{theorem}
+\begin{theorem}\cite{Kress}
 Нехай $\partial D\in C^2$ і $\varphi\in C(\partial D)$. Тоді для потенціалу простого шару $u$ з густиною $\varphi$ маємо:
 \begin{equation*}
 \frac{\partial u_\pm}{\partial\nu}(x)=\mp\frac{1}{2}\varphi(x)+\int\limits_{\partial D}\varphi(y)\frac{\partial N(x,y)}{\partial\nu(x)} ds(y) , \quad x \in \partial D,
@@ -172,7 +172,8 @@ N(x,y) = \frac{1}{2\pi} \ln{\frac{1}{|x-y|}} + \tilde{N}(x,y),
 де
 \begin{equation*}
 \tilde{N}(x,y) = \frac{1}{2\pi}\ln{\bigg(\bigg|y-\frac{xR^2}{|x|^2}\bigg|\frac{|x|}{R^3}\bigg)}.
-\end{equation*}
+ \end{equation*}
+\hspace*{\parindent}Фундаментальний розв'язок взято з \cite{Chapko}. \\
 \hspace*{\parindent}Подамо розв'язок задачі (1.1)-(1.2) у вигляді:
 \begin{equation}
 \ u(x)=u_{1}(x)+u_{2}(x),
@@ -218,10 +219,10 @@ u(x) = \int\limits_{\Gamma_{1}} \, \varphi_{1}(y)N(x,y)ds(y)+\int\limits_{\Gamma
  \left\{
 \begin{array}{c}
    \displaystyle
-\frac{1}{2}\varphi_{1}(x) + \int\limits_{\Gamma_1} \, \varphi_1(y)N(x,y)ds(y)+\int\limits_{\Gamma_2} \, \varphi_2(y)\bigg(\frac{\partial N(x,y)}{\partial\nu} + 1\bigg)ds(y)=f_1(x)-\frac{\partial u_{1}(x)}{\partial\nu},\\ \quad x\in \Gamma_1,\\
+\frac{1}{2}\varphi_{1}(x) + \int\limits_{\Gamma_1} \, \varphi_1(y)\frac{\partial N(x,y)}{\partial\nu(x)}ds(y)+\frac{\partial }{\partial\nu(x)}\int\limits_{\Gamma_2} \, \varphi_2(y)\bigg(\frac{\partial N(x,y)}{\partial\nu} + 1\bigg)ds(y) = \\=f_1(x) -\frac{\partial u_{1}(x)}{\partial\nu}, \quad x\in \Gamma_1,\\
 
 	\displaystyle
-  -\frac{1}{2}\varphi_{2}(x) + \int\limits_{\Gamma_1} \, \varphi_1(y)N(x,y)ds(y)+\int\limits_{\Gamma_2} \, \varphi_2(y)\bigg(\frac{\partial N(x,y)}{\partial\nu} + 1\bigg)ds(y)=f_2(x)-u_{1}(x),\\ \quad x\in \Gamma_2,
+  -\frac{1}{2}\varphi_{2}(x) + \int\limits_{\Gamma_1} \, \varphi_1(y)N(x,y)ds(y)+\int\limits_{\Gamma_2} \, \varphi_2(y)\bigg(\frac{\partial N(x,y)}{\partial\nu} + 1\bigg)ds(y)=f_2(x)- \\ -u_{1}(x), \quad x\in \Gamma_2,
  \end{array}
 \right.
 \end{equation}
@@ -231,7 +232,7 @@ u(x) = \int\limits_{\Gamma_{1}} \, \varphi_{1}(y)N(x,y)ds(y)+\int\limits_{\Gamma
 %ПОМІНЯТИ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 \newpage
 \section{Коректність отриманих інтегральних рівнянь}
-\begin{theorem}
+\begin{theorem}\cite{Kress}
 Потенціал подвійного шару з $\varphi \in C(\partial D)$
 \begin{equation*}
 u(x) = \int\limits_{\partial D} \, \varphi(y) \bigg(\frac{\partial F(x,y)}{\partial \nu} + \frac{1}{|x|^{m-2}}\bigg)ds(y), x \in R^m \setminus D
@@ -242,12 +243,12 @@ u(x) = \int\limits_{\partial D} \, \varphi(y) \bigg(\frac{\partial F(x,y)}{\part
 \end{equation}
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}\cite{Kress}
 Зовнішня задача Діріхле має щонайбільше один розв'язок.
 \end{theorem}
 
 
-\begin{theorem}
+\begin{theorem}\cite{Kress}
 Потенціал простого шару з $\varphi \in C(\partial D)$
 \begin{equation*}
 u(x) = \int\limits_{\partial D} \, \varphi(y) F(x,y)ds(y), x \in  D
@@ -258,12 +259,12 @@ u(x) = \int\limits_{\partial D} \, \varphi(y) F(x,y)ds(y), x \in  D
 \end{equation}
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}\cite{Kress}
 Два розв'язки внутрішньої задачі Неймана відрізняютсья на константу.
 Зовнішня задача Неймана має найбільше один розв'язок.
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}\cite{Kress}
 Внутрішня задача Неймана є розв'язною тоді і лише тоді, якщо
 \begin{equation*}
 \int\limits_{\partial D} \, f(y)ds(y) = 0
@@ -272,7 +273,7 @@ u(x) = \int\limits_{\partial D} \, \varphi(y) F(x,y)ds(y), x \in  D
 
 
 
-\begin{theorem}
+\begin{theorem}\cite{Kress}
 Потенціал простого шару з $\varphi \in C(\partial D)$
 \begin{equation*}
 u(x) = \int\limits_{\partial D} \, \varphi(y) F(x,y)ds(y), \varphi \in R^m \setminus D
@@ -298,9 +299,9 @@ u(x) = \int\limits_{\partial D} \, \varphi(y) F(x,y)ds(y), \varphi \in R^m \setm
 \left\{
 \begin{array}{c}
 \displaystyle
-\frac{1}{2}\mu_1(t) + \frac{1}{2\pi}\int\limits_{0}^{2\pi} \, \mu_1 (\tau)H_{1}(t,\tau)d\tau+\frac{1}{2\pi}\int\limits_{0}^{2\pi} \, \mu_2 (\tau)\bigg(\frac{\partial L_1(t,\tau)}{\partial\nu} + 1\bigg)d\tau=g_1(t),\\ t\in [0, 2\pi]\\
+\frac{1}{2}\mu_1(t) + \frac{1}{2\pi}\int\limits_{0}^{2\pi} \, \mu_1 (\tau)\frac{\partial H_{1}}{\partial\nu(t)}(t,\tau)d\tau+\frac{1}{2\pi}\frac{\partial }{\partial\nu(t)}\int\limits_{0}^{2\pi} \, \mu_2 (\tau)\bigg(\frac{\partial L_1(t,\tau)}{\partial\nu} + 1\bigg)d\tau=g_1(t),\\ t\in [0, 2\pi]\\
 \displaystyle
--\frac{1}{2}\mu_2(t) + \frac{1}{2\pi}\int\limits_{0}^{2\pi} \, \mu_1 (\tau)L_{2}(t,\tau)d\tau+\frac{1}{2\pi}\int\limits_{0}^{2\pi} \, \mu_2 (\tau)\bigg(\frac{\partial L_1(t,\tau)}{\partial\nu} + 1\bigg)d\tau=g_2(t),\\ t\in [0, 2\pi]
+-\frac{1}{2}\mu_2(t) + \frac{1}{2\pi}\int\limits_{0}^{2\pi} \, \mu_1 (\tau)L_{2}(t,\tau)d\tau+\frac{1}{2\pi}\int\limits_{0}^{2\pi} \, \mu_2 (\tau)\bigg(\frac{\partial H_2(t,\tau)}{\partial\nu} + 1\bigg)d\tau=g_2(t),\\ t\in [0, 2\pi]
 \end{array}
 \right.
 \end{equation}
@@ -313,13 +314,13 @@ g_{1}(t)=f_{0}(x_{i}(t))-u_1(x_{i}(t)),\\
 g_{2}(t)=f_{0}(x_{i}(t))-\frac{\partial u_1(x_{i}(t))}{\partial\nu},\\
 \end{equation*}
 \begin{equation*}
-L_{1}(t,\tau)=2\pi N(x_1(t),x_2(\tau))|x_{i}'(t)|
+L_{1}(t,\tau)=2\pi N(x_1(t),x_2(\tau))
 \end{equation*}
 \begin{equation*}
-L_{2}(t,\tau)=2\pi N(x_2(t),x_1(\tau))|x_{i}'(t)|
+L_{2}(t,\tau)=2\pi N(x_2(t),x_1(\tau))
 \end{equation*}
 \begin{equation*}
-H_{i}(t,\tau)=2\pi N(x_i(t),x_i(\tau))|x_{i}'(t)|, \quad i=1,2.
+H_{i}(t,\tau)=2\pi N(x_i(t),x_i(\tau)), \quad i=1,2.
 \end{equation*}
 \hspace*{\parindent}Ядра $H_{i}(t,\tau)$ мають логарифмічну особливість при $t=\tau$. Для виділення цієї особливості, подамо ядра в такому вигляді:
 \begin{equation*}
@@ -341,13 +342,13 @@ H_{i2}(t,\tau)=\left\{
 \left\{
 \begin{array}{c}
 \displaystyle
-\frac{1}{2}\mu_1(t) + \frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu_1(\tau)\Big[H_{11}(t,\tau)\ln{\Big(\frac{4}{e}\sin^2\frac{t-\tau}{2}\Big)}+H_{12}(t,\tau)\Big]d\tau+\\
+\frac{1}{2}\mu_1(t) + \frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu_1(\tau)\frac{\partial}{\partial\nu(t)}\Big[H_{11}(t,\tau)\ln{\Big(\frac{4}{e}\sin^2\frac{t-\tau}{2}\Big)}+H_{12}(t,\tau)\Big]|x_{i}'(t)|d\tau+\\
 \displaystyle
-+\frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu_2(\tau)L_{1}(t,\tau)d\tau=g_1(t),\quad  t \in [0, 2\pi]\\
++\frac{1}{2\pi}\frac{\partial}{\partial{\nu(t)}}\int\limits_{0}^{2\pi} \,\mu_2(\tau)\bigg(\frac{\partial L_{1}(t,\tau)}{\partial\nu(\tau)} + 1\bigg)|x_{i}'(t)|d\tau=g_1(t),\quad  t \in [0, 2\pi]\\
 \displaystyle
--\frac{1}{2}\mu_2(t) + \frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu_1(\tau)L_{2}(t,\tau)d\tau+\frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu_2 (\tau)\Big[H_{21}(t,\tau)\ln{\Big(\frac{4}{e}\sin^2\frac{t-\tau}{2}\Big)}+\\
+-\frac{1}{2}\mu_2(t) + \frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu_1(\tau)L_{2}(t,\tau)|x_{i}'(t)|d\tau+\frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu_2 (\tau)\Big[H_{21}(t,\tau)\ln{\Big(\frac{4}{e}\sin^2\frac{t-\tau}{2}\Big)}+\\
 \displaystyle
-+H_{22}(t,\tau)\Big]d\tau=g_2(t),\quad  t \in [0, 2\pi]
++H_{22}(t,\tau)+ 1\Big]|x_{i}'(t)|d\tau=g_2(t),\quad  t \in [0, 2\pi]
 \end{array}
 \right.
 \end{equation}
@@ -372,18 +373,18 @@ R_{j}(t) = -\frac{1}{2n}\Big[1+2\sum\limits_{m=1}^{n-1}{\frac{1}{m}\cos{m(t-t_{j
 \left\{
 \begin{array}{c}
 \displaystyle
-\frac{1}{2}\mu_1(t) + \sum\limits_{j=0}^{2n-1} \mu_1(t_j)\Big[H_{11}(t_k,t_j)R_j(t_k)+\frac{1}{2n}H_{12}(t_k,t_j)\Big]+\frac{1}{2n}\sum\limits_{j=0}^{2n-1} \mu_2(t_j)\bigg(\frac{\partial L_1(t_k,t_j)}{\partial \nu} + 1\bigg)=\\
+\frac{1}{2}\mu_1(t) + \frac{\partial}{\partial \nu(t_k)}\sum\limits_{j=0}^{2n-1} \mu_1(t_j)\Big[H_{11}(t_k,t_j)R_j(t_k)+\frac{1}{2n}H_{12}(t_k,t_j)\Big]+\\ + \frac{1}{2n}\frac{\partial}{\partial \nu(t_k)}\sum\limits_{j=0}^{2n-1} \mu_2(t_j)\bigg(\frac{\partial L_1(t_k,t_j)}{\partial \nu} + 1\bigg)
 \displaystyle
-=g_1(t_k), \quad k=0,...,2n-1\\
+= g_1(t_k), \quad k=0,...,2n-1\\
 \displaystyle
--\frac{1}{2}\mu_2(t) + \frac{1}{2n}\sum\limits_{j=0}^{2n-1} \mu_1(t_j)L_2(t_k,t_j)+\sum\limits_{j=0}^{2n-1} \mu_2(t_j)\bigg(\frac{\partial}{\partial \nu}\Big[H_{21}(t_k,t_j)R_j(t_k)+\frac{1}{2n}H_{22}(t_k,t_j)\Big] + 1 \bigg)=\\
+-\frac{1}{2}\mu_2(t) + \frac{1}{2n}\sum\limits_{j=0}^{2n-1} \mu_1(t_j)L_2(t_k,t_j)+\sum\limits_{j=0}^{2n-1} \mu_2(t_j)\bigg(\frac{\partial}{\partial \nu}\Big[H_{21}(t_k,t_j)R_j(t_k)+\\+\frac{1}{2n}H_{22}(t_k,t_j)\Big] + 1 \bigg)
 \displaystyle
 =g_2(t_k), \quad k=0,...,2n-1
 \end{array}
 \right.
 \end{equation}
 \section*{Збіжність методу та оцінка похибки}
-\begin{theorem}
+\begin{theorem}\cite{Kress}
 Похибку складеної формули трапецій:
 \begin{equation*}
 R_{T}(f)=\frac{1}{2\pi}\int\limits_{0}^{2\pi}f(t)dt-\frac{1}{2n}\sum\limits_{j=0}^{2n-1}f(\frac{j\pi}{n})
@@ -397,11 +398,11 @@ R_{T}(f)=\frac{1}{2\pi}\int\limits_{0}^{2\pi}f(t)dt-\frac{1}{2n}\sum\limits_{j=0
 \hspace*{\parindent}Запишемо інтегральні оператори:
 
 \begin{equation*}
-(S_{1}\mu)(\tau)=\frac{1}{2}\mu_1(t) + \frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu(\tau)\Big[H_{11}(t,\tau)\ln{\frac{4}{e}\sin^2\frac{t-\tau}{2}}+H_{12}(t,\tau)\Big]d\tau
+(S_{1}\mu)(\tau)=\frac{1}{2}\mu_1(t) + \frac{1}{2\pi}\frac{\partial}{\partial\nu(t)}\int\limits_{0}^{2\pi} \,\mu(\tau)\Big[H_{11}(t,\tau)\ln{\frac{4}{e}\sin^2\frac{t-\tau}{2}}+H_{12}(t,\tau)\Big]d\tau
 \end{equation*}
 
 \begin{equation*}
-(T_{1}\mu)(\tau)=\frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu(\tau)\bigg(\frac{\partial L_{1}(t,\tau)}{\partial \nu} + 1\bigg)d\tau
+(T_{1}\mu)(\tau)=\frac{1}{2\pi}\frac{\partial}{\partial\nu(t)}\int\limits_{0}^{2\pi} \,\mu(\tau)\bigg(\frac{\partial L_{1}(t,\tau)}{\partial \nu} + 1\bigg)d\tau
 \end{equation*}
 
 \begin{equation*}
@@ -415,7 +416,7 @@ R_{T}(f)=\frac{1}{2\pi}\int\limits_{0}^{2\pi}f(t)dt-\frac{1}{2n}\sum\limits_{j=0
 
 та відповідні їм послідовності квадратурних операторів:
 \begin{equation*}
-(S_{1,n}\mu)(t)=\frac{1}{2}\mu_1(t)+\sum\limits_{j=0}^{2n-1} \mu(t_{j})\Big[H_{11}(t,t_j)R_j(t)+\frac{1}{2n}H_{12}(t,t_j)\Big], \quad t\in[0;2\pi]
+(S_{1,n}\mu)(t)=\frac{1}{2}\mu_1(t)+\frac{\partial}{\partial\nu(t)}\sum\limits_{j=0}^{2n-1} \mu(t_{j})\Big[H_{11}(t,t_j)R_j(t)+\frac{1}{2n}H_{12}(t,t_j)\Big], \quad t\in[0;2\pi]
 \end{equation*}
 
 \begin{equation*}
@@ -423,7 +424,7 @@ R_{T}(f)=\frac{1}{2\pi}\int\limits_{0}^{2\pi}f(t)dt-\frac{1}{2n}\sum\limits_{j=0
 \end{equation*}
 
 \begin{equation*}
-(T_{1,n}\mu)(t)=\frac{1}{2n}\sum\limits_{j=0}^{2n-1}\mu(t_j)\bigg(\frac{\partial}{\partial\nu}L_{1}(t,t_j) + 1\bigg), \quad t\in[0;2\pi]
+(T_{1,n}\mu)(t)=\frac{1}{2n}\frac{\partial}{\partial\nu(t)}\sum\limits_{j=0}^{2n-1}\mu(t_j)\bigg(\frac{\partial}{\partial\nu}L_{1}(t,t_j) + 1\bigg), \quad t\in[0;2\pi]
 \end{equation*}
 
 \begin{equation*}
@@ -468,13 +469,13 @@ f_{2}
 \begin{equation*}
 A_{n}\mu_{n}=F.
 \end{equation*}
-\begin{theorem}
+\begin{theorem}\cite{Kress}
 Для збіжних квадратурних формул послідовність операторів $(A_{n})$ колективно компактна і поточково збіжна:
 \begin{equation*}
 A_{n}\varphi\rightarrow A\varphi, \ n\to\infty \quad \forall\varphi\in C(\Gamma_{1})\times C(\Gamma_{2}).
 \end{equation*}
 \end{theorem}
-\begin{theorem}
+\begin{theorem}\cite{Kress}
 Для достатньо великого n система (2.9) має єдиний розв'язок і має місце оцінка похибки:
 \begin{equation*}
 \Vert\mu_{n}-\mu\Vert\le M\Vert A_{n}\mu-A\mu\Vert_{\infty}, \quad M>0.
@@ -527,14 +528,12 @@ n & $x(0.8,1.5)$ & $x(-2,0.3)$\\
 \addcontentsline{toc}{chapter}{Список літератури}
 \begin{thebibliography}{99}
 
-\bibitem{Abramovic}
-\emph{Polyanin} EXACT SOLUTIONS for ORDINARY DIFFERENTIAL EQUATIONS / Andrei D. Polyanin Valentin F. Zaitsev
-
 \bibitem{Kress}
-\emph{Kress R.} Linear Integral Equations /R.Kress. - Heidelberg:Springer -Velag, 1999. - 368 c.
+\emph{Kress R.} Linear Integral Equations /R.Kress. - Heidelberg:Springer -Velag, 1999. - 75-101
 
 \bibitem{Chapko}
-\emph{Chapko R.} ON THE NUMERICAL SOLUTION OF A CAUCHY PROBLEM FOR THE LAPLACE EQUATION VIA A DIRECT INTEGRAL EQUATION APPROACH. / Roman Chapko, B. Tomas Johansson 
+\emph{Chapko R.} On the numerical solution of a cauchy problem for the laplace equation via a direct integral equation approach. / Roman Chapko, B. Tomas Johansson // Inverse Problems and Imaging - 2012 - Volume 6, No. 1, 25–38
+
 
 \end{thebibliography}
 \end{document}
