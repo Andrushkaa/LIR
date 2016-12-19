@@ -1,0 +1,470 @@
+
+\documentclass[10pt]{beamer}
+
+\mode<presentation>
+ {
+ \usetheme{Madrid}
+ \setbeamercovered{transparent}
+ \usecolortheme{wolverine}
+ }
+\usefonttheme[]{serif}
+\usepackage{xcolor}
+\usepackage{fancyvrb}
+\usepackage{graphicx}
+\usepackage{beamerthemesplit}
+\usepackage{graphics,epsfig,bezier}
+\usepackage[utf8]{inputenc}
+%\usepackage[utf8]{inputenc}
+\usepackage[ukrainian]{babel}
+\usepackage[cp1251]{inputenc}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[english,ukrainian]{babel}
+
+\usepackage{times}
+\usepackage{amsmath,amssymb}
+%\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+\begin{document}
+
+\setbeamercovered{dynamic}
+\title[]{Чисельне розв'язування мішаної задачі для рівнняння Лапласа методом інтегральних рівнянь}
+\author{{Роман Андрій}\\ {Зварич Андрій}}
+\institute{Львівський національний університет ім.Івана Франка}
+\date{\today}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\tableofcontents
+\end{frame}
+
+\section{Теоретичні відомості}
+\subsection{Постановка задачі}
+\begin{frame}
+\frametitle{Постановка задачі}
+\hspace*{\parindent}Нехай $D_0\subset \mathbb{R}^2$ - круг радіуса $R>0$ з границею $\Gamma_0$, $D_1\subset D_0$ і $D_2\subset D_0$ - області з границями $\Gamma_i\in C^2$, $i=1,2$. Причому $D_1\cap D_2=\{\emptyset\}$.\\ 
+\hspace*{\parindent}Позначимо $D=D_0\setminus (\bar{D_1}\cup\bar{D_2})$. Необхідно знайти функцію $u:D \rightarrow \mathbb{R}$, яка задовольняє рівняння Лапласа
+\begin{equation}
+\Delta u=0\text{ в }D
+\end{equation}
+і граничні умови 
+
+\begin{equation}
+		u = f_2 \mbox{  на  }  \Gamma_2 ,\quad
+		\frac{\partial u}{\partial \nu} = f_1 \mbox{  на  }  \Gamma_1 ,\quad
+		\frac{\partial u}{\partial \nu} = f_0 \mbox{  на  } \Gamma_0 ,\quad
+\end{equation}
+
+Тут $f_0$, $f_1$, $f_2$ - задані функції.
+\end{frame}
+
+\subsection{Потенціал простого шару}
+\begin{frame}
+\frametitle{Потенціал простого шару}
+\begin{equation*}
+u(x) = \int\limits_{\partial{D}} \, \varphi(y)N(x,y) ds(y) , \quad x \in \mathbb{R}^m\setminus D
+\end{equation*}
+Стрибок при переході через границю
+\begin{equation}\label{4}
+\frac{\partial u_\pm}{\partial\nu}(x)=\mp\frac{1}{2}\varphi(x)+\int\limits_{\partial D}\varphi(y)\frac{\partial N(x,y)}{\partial\nu(x)} ds(y) , \quad x \in \partial D,
+\end{equation}
+\end{frame}
+
+\subsection{Потенціал подвійного шару}
+\begin{frame}
+\frametitle{Потенціал подвійного шару}
+\begin{equation}\label{3}
+  \begin{equation*}
+\upsilon(x) = \int\limits_{\partial{D}} \, \varphi(y)\frac{\partial N(x,y)}{\partial\nu(y)} ds(y) , \quad x \in \mathbb{R}^m\setminus D
+\end{equation*}, 
+\end{equation}
+Стрибок при переході через границю
+\begin{equation}\label{4}
+\upsilon_\pm(x) = \pm\frac{1}{2}\varphi(x)+\int\limits_{\partial{D}} \, \varphi(y)\frac{\partial N(x,y)}{\partial\nu(y)} ds(y) , \quad x \in \partial D,
+\end{equation}
+\end{frame}
+
+
+\subsection{Функція Неймана}
+\begin{frame}
+\frametitle{Функція Неймана}
+\begin{equation}\label{7}
+N(x,y) = \frac{1}{2\pi} \ln{\frac{1}{|x-y|}} + \tilde{N}(x,y),
+\end{equation}
+де
+\begin{equation}\label{8}
+\tilde{N}(x,y) = \frac{1}{2\pi}\ln{\bigg(\bigg|y-\frac{xR^2}{|x|^2}\bigg|\frac{|x|}{R^3}\bigg)}.
+\end{equation}
+\end{frame}
+
+
+\begin{frame}
+Подамо розв'язок задачі у вигляді:
+\begin{equation}
+\ u(x)=u_{1}(x)+u_{2}(x),
+\end{equation}
+де $u_{1}(x)$ - розв'язок задачі:
+\begin{equation}
+ \begin{cases}
+   \Delta{u_{1}} = 0 \quad \textup{в} \quad D_{0},
+   \\
+   \frac{\partial u_{1}}{\partial\nu} = f_{0}  \quad \textup{на} \quad \Gamma_{0},
+ \end{cases}
+\end{equation}
+$u_{2}(x)$ - розв'язок задачі:
+\begin{equation}
+ \begin{cases}
+   \Delta{u_{2}} = 0 \quad \textup{в} \quad D_{0} \backslash({D_{1}}\cup {D_{2}})%D_1\bigcup D_2,
+   \\
+   u_{2}=0 \quad \textup{на} \quad \Gamma_{0},
+	\\
+   \frac{\partial u_{2}}{\partial\nu} = f_{1} - \frac{\partial u_{1}}{\partial\nu} \quad \textup{на} \quad \Gamma_{1},
+	\\
+   u_{2} = f_{2} - u_{1} \quad \textup{на} \quad \Gamma_{2},
+
+ \end{cases}
+\end{equation}
+\end{frame}
+
+
+\subsection{Зведення до ІР}
+\begin{frame}
+\frametitle{Зведення до інтегрального рівняння}
+Розв'язком задачі (9) є інтеграл вигляду:
+\begin{equation}
+u_{1}(x) = \int\limits_{\Gamma_{0}} \, f_{0}(y)N(x,y) ds(y). 
+\end{equation}
+Розв'язок задачі (10):
+\begin{equation}
+u_{2}(x) = \int\limits_{\Gamma_{1}} \, \varphi_{1}(y)N(x,y)ds(y)+\int\limits_{\Gamma_{2}} \, \varphi_{2}(y)\bigg(\frac{\partial N(x,y)}{\partial\nu} + 1\bigg)ds(y). 
+\end{equation}
+\end{frame}
+
+\begin{frame}
+густини $\varphi_{1}$, $\varphi_{2}$ визначаються з системи інтегральних рівнянь другого роду:
+\begin{equation}\label{13}
+ \left\{
+\begin{array}{c}
+   \displaystyle
+\frac{1}{2}\varphi_{1}(x) + \int\limits_{\Gamma_1} \, \varphi_1(y)\frac{\partial N(x,y)}{\partial\nu(x)}ds(y)+\frac{\partial }{\partial\nu(x)}\int\limits_{\Gamma_2} \, \varphi_2(y)\bigg(\frac{\partial N(x,y)}{\partial\nu} + 1\bigg)ds(y) = \\=f_1(x) -\frac{\partial u_{1}(x)}{\partial\nu}, \quad x\in \Gamma_1,\\
+
+	\displaystyle
+  -\frac{1}{2}\varphi_{2}(x) + \int\limits_{\Gamma_1} \, \varphi_1(y)N(x,y)ds(y)+\int\limits_{\Gamma_2} \, \varphi_2(y)\bigg(\frac{\partial N(x,y)}{\partial\nu} + 1\bigg)ds(y)=f_2(x)- \\ -u_{1}(x), \quad x\in \Gamma_2,
+ \end{array}
+\right.
+\end{equation}
+
+\end{frame}
+
+\subsection{Коректність}
+\begin{frame}
+\frametitle{Коректність системи інтегральних рівнянь}
+\begin{equation*}
+(S_{1}\mu)(\tau)=\int\limits_{\Gamma_1} \, \varphi_1(y)\frac{\partial N(x,y)}{\partial\nu(x)}ds(y), \quad x\in \Gamma_1
+\end{equation*}
+\begin{equation*}
+(T_{1}\mu)(\tau)=\frac{\partial }{\partial\nu(x)}\int\limits_{\Gamma_2} \, \varphi_2(y)\bigg(\frac{\partial N(x,y)}{\partial\nu} + 1\bigg)ds(y), \quad x\in \Gamma_1
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+\begin{equation*}
+(S_{2}\mu)(\tau)=\int\limits_{\Gamma_1} \, \varphi_1(y)N(x,y)ds(y), \quad x\in \Gamma_2
+\end{equation*}
+\begin{equation*}
+(T_{2}\mu)(\tau)=\int\limits_{\Gamma_2} \, \varphi_2(y)\bigg(\frac{\partial N(x,y)}{\partial\nu} + 1\bigg)ds(y), \quad x\in \Gamma_2
+\end{equation*}
+
+Нашу систему інтегральних рівнянь можемо записати у вигляді:\\
+\center{\mu - U\mu = F},\\
+де \mu = (\mu_1, \mu_2)^{T}, F = (F_1, F_2)^{T}\\
+F_1 = f_1(x) - \frac{\partial{u_1(x)}}{\partial\nu)}\\
+F_2 = f_2(x) - u_1(x)
+\end{frame}
+
+\begin{frame}
+\center{
+U=\left[
+\begin{array}{cc}
+S_{1}&T_{1}\\
+T_{2}&S_{2}
+\end{array}
+\right]\quad}
+
+ \Gamma = \Gamma_1 \cup \Gamma_2. Оператори $T_1$ та $T_2$ мiстять неперервнi ядра, отже є компактними в $C(\Gamma)$. Оператори $S_1$ та $S_2$ мiстять слабосингулярнi ядра, отже також є компактними. Таким чином ми можемо застосувати теорiю Рiсса для доведення коректностi нашої системи IР.
+
+\end{frame}
+
+
+\subsection{Параметризація}
+\begin{frame}
+\frametitle{Параметризація інтегрального рівняння}
+Нехай границі $\Gamma_{0}$, $\Gamma_{1}$ та $\Gamma_{2}\in C^{2}$ задаються параметрично:
+\begin{equation*}
+\Gamma_i :=\{x_i(t) = (x_i_1(t),x_i_2(t)), t \in [0,2\pi]\}, i=0,1,2.
+\end{equation*}
+Тут $x_{i}: [0,2\pi]\to\mathbb{R}^{2}\in C^{2}[0,2\pi]-2\pi$-періодична функція, для якої $|x_{i}'(t)|>0$, $t\in[0,2\pi]$.\\ 
+\hspace*{\parindent}Тоді систему інтегральних рівнянь (2.7) можна подати в параметричному вигляді:
+
+\end{frame}
+
+\begin{frame}
+\begin{equation}
+\left\{
+\begin{array}{c}
+\displaystyle
+\frac{1}{2}\mu_1(t) + \frac{1}{2\pi}\int\limits_{0}^{2\pi} \, \mu_1 (\tau)\frac{\partial H_{1}}{\partial\nu(t)}(t,\tau)d\tau+\frac{1}{2\pi}\frac{\partial }{\partial\nu(t)}\int\limits_{0}^{2\pi} \, \mu_2 (\tau)\bigg(\frac{\partial L_1(t,\tau)}{\partial\nu} + 1\bigg)d\tau = \\ = g_1(t), t\in [0, 2\pi]\\
+\displaystyle
+-\frac{1}{2}\mu_2(t) + \frac{1}{2\pi}\int\limits_{0}^{2\pi} \, \mu_1 (\tau)L_{2}(t,\tau)d\tau+\frac{1}{2\pi}\int\limits_{0}^{2\pi} \, \mu_2 (\tau)\bigg(\frac{\partial H_2(t,\tau)}{\partial\nu} + 1\bigg)d\tau=g_2(t),\\ t\in [0, 2\pi]
+\end{array}
+\right.
+\end{equation}
+де 
+\begin{equation*}
+\mu_{i}(t)=\varphi(x_{i}(t)) -2\pi\textup{-періодична функція}, \quad i=1,2,
+\end{equation*}
+\end{frame}
+\begin{frame}
+\begin{equation*}
+g_{1}(t)=f_{0}(x_{i}(t))-u_1(x_{i}(t)), 
+g_{2}(t)=f_{0}(x_{i}(t))-\frac{\partial u_1(x_{i}(t))}{\partial\nu},\\
+\end{equation*}
+\begin{equation*}
+L_{1}(t,\tau)=2\pi N(x_1(t),x_2(\tau))
+\end{equation*}
+\begin{equation*}
+L_{2}(t,\tau)=2\pi N(x_2(t),x_1(\tau))
+\end{equation*}
+\begin{equation*}
+H_{i}(t,\tau)=2\pi N(x_i(t),x_i(\tau)), \quad i=1,2.
+\end{equation*}
+\end{frame}
+\subsection{Виділення особливості}
+\begin{frame}
+\frametitle{Виділення особливості}
+Ядра $H_{i}(t,\tau)$ мають логарифмічну особливість при $t=\tau$. Для виділення цієї особливості, подамо ядра в такому вигляді:
+\begin{equation*}
+H_{i}(t,\tau)=H_{i1}(t,\tau)\ln{\frac{4}{e}\sin^2\frac{t-\tau}{2}}+H_{i2}(t,\tau), \quad i=1,2,
+\end{equation*}
+де
+\begin{equation*}
+H_{i2}(t,\tau)=\left\{
+\begin{array}{l}
+\displaystyle
+\frac{1}{2}\ln{\frac{4\sin^2\frac{t-\tau}{2}}{e|x_{i}(t)-x_{i}(\tau)|^2}}+\tilde{N}(x_{i}(t),x_{i}(\tau)), \quad t\neq\tau\\ \\
+\displaystyle
+\frac{1}{2}\ln{\frac{1}{e|x_{i}'(\tau)|^2}}+\tilde{N}(x_{i}(\tau),x_{i}(\tau)), \quad t=\tau.
+\end{array}
+\right.
+\end{equation*}
+\end{frame}
+
+
+\subsection{Дискретизація інтегрального рівняння}
+\begin{frame}
+\frametitle{Дискретизація інтегрального рівняння}
+\center{$t_{j}:=\frac{j\pi}{n}$, $j=0,...,2n-1$}
+\begin{equation*}
+\displaystyle
+\frac{1}{2\pi}\int\limits_{0}^{2\pi}f(t)dt\approx
+\frac{1}{2n}\sum\limits_{j=0}^{2n-1}f(t_{j}),
+\end{equation*}
+\begin{equation*}
+\displaystyle
+\frac{1}{2\pi}\int\limits_{0}^{2\pi}f(\tau)\ln{\frac{4}{e}\sin^2\frac{t-\tau}{2}}d\tau\approx\sum\limits_{j=0}^{2n-1}f(t_{j})R_{j}(t),
+\end{equation*}
+з ваговими функціями
+\begin{equation*}
+\displaystyle
+R_{j}(t) = -\frac{1}{2n}\Big[1+2\sum\limits_{m=1}^{n-1}{\frac{1}{m}\cos{m(t-t_{j})}} + \frac{1}{n}\cos{n(t-t_{j})}\Big].
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+Застосуємо наведені квадратурні правила для апрксимації інтегралів у системі (2.9). В якості точок колокації виберемо квадратурні вузли $t_{j}$, $t_{k}$. Отримаємо наступну систему лінійних рівнянь розмірності $2n\times 2n$:
+\begin{equation}
+\left\{
+\begin{array}{c}
+\displaystyle
+\frac{1}{2}\mu_1(t) + \frac{\partial}{\partial \nu(t_k)}\sum\limits_{j=0}^{2n-1} \mu_1(t_j)\Big[H_{11}(t_k,t_j)R_j(t_k)+\frac{1}{2n}H_{12}(t_k,t_j)\Big]+\\ + \frac{1}{2n}\frac{\partial}{\partial \nu(t_k)}\sum\limits_{j=0}^{2n-1} \mu_2(t_j)\bigg(\frac{\partial L_1(t_k,t_j)}{\partial \nu} + 1\bigg)
+\displaystyle
+= g_1(t_k), \quad k=0,...,2n-1\\
+\displaystyle
+-\frac{1}{2}\mu_2(t) + \frac{1}{2n}\sum\limits_{j=0}^{2n-1} \mu_1(t_j)L_2(t_k,t_j)+\sum\limits_{j=0}^{2n-1} \mu_2(t_j)\bigg(\frac{\partial}{\partial \nu}\Big[H_{21}(t_k,t_j)R_j(t_k)+\\+\frac{1}{2n}H_{22}(t_k,t_j)\Big] + 1 \bigg)
+\displaystyle
+=g_2(t_k), \quad k=0,...,2n-1
+\end{array}
+\right.
+\end{equation}
+\end{frame}
+
+
+\subsection{Збіжність та оцінка похибки}
+\begin{frame}
+\frametitle{Збіжність та оцінка похибки}
+Похибку складеної формули трапецій:
+\begin{equation*}
+R(f)=\frac{1}{2\pi}\int\limits_{0}^{2\pi}f(t)dt-\frac{1}{2n}\sum\limits_{j=0}^{2n-1}f(\frac{j\pi}{n})
+\end{equation*}
+для аналітичної $2\pi$-періодичної функції $f$ можна оцінити у вигляді:
+\begin{equation*}
+|R(f)|\le Ce^{-n\sigma},
+\end{equation*}
+де $C$, $\sigma>0$ -- константи, залежні від f. 
+\end{frame}
+
+\begin{frame}
+Запишемо інтегральні оператори:
+
+\begin{equation*}
+(S_{1}\mu)(\tau)=\frac{1}{2}\mu_1(t) + \frac{1}{2\pi}\frac{\partial}{\partial\nu(t)}\int\limits_{0}^{2\pi} \,\mu(\tau)\Big[H_{11}(t,\tau)\ln{\frac{4}{e}\sin^2\frac{t-\tau}{2}}+H_{12}(t,\tau)\Big]d\tau
+\end{equation*}
+
+\begin{equation*}
+(T_{1}\mu)(\tau)=\frac{1}{2\pi}\frac{\partial}{\partial\nu(t)}\int\limits_{0}^{2\pi} \,\mu(\tau)\bigg(\frac{\partial L_{1}(t,\tau)}{\partial \nu} + 1\bigg)d\tau
+\end{equation*}
+
+\begin{equation*}
+(S_{2}\mu)(\tau)=-\frac{1}{2}\mu_2(t) + \frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu(\tau)\bigg(\frac{\partial}{\partial\nu}\Big[H_{21}(t,\tau)\ln{\frac{4}{e}\sin^2\frac{t-\tau}{2}}+H_{22}(t,\tau)\Big] + 1\bigg)d\tau
+\end{equation*}
+
+\begin{equation*}
+(T_{2}\mu)(\tau)=\frac{1}{2\pi}\int\limits_{0}^{2\pi} \,\mu(\tau)L_{2}(t,\tau)d\tau
+\end{equation*}
+
+
+\end{frame}
+
+\begin{frame}
+та відповідні їм послідовності квадратурних операторів:
+\begin{equation*}
+(S_{1,n}\mu)(t)=\frac{1}{2}\mu_1(t)+\frac{\partial}{\partial\nu(t)}\sum\limits_{j=0}^{2n-1} \mu(t_{j})\Big[H_{11}(t,t_j)R_j(t)+\frac{1}{2n}H_{12}(t,t_j)\Big], \quad t\in[0;2\pi]
+\end{equation*}
+
+\begin{equation*}
+(S_{2,n}\mu)(t)=-\frac{1}{2}\mu_2(t)\sum\limits_{j=0}^{2n-1} \mu(t_{j})\bigg(\frac{\partial}{\partial\nu}\Big[H_{21}(t,t_j)R_j(t)+\frac{1}{2n}H_{22}(t,t_j)\Big] + 1\bigg), \quad t\in[0;2\pi]
+\end{equation*}
+
+\begin{equation*}
+(T_{1,n}\mu)(t)=\frac{1}{2n}\frac{\partial}{\partial\nu(t)}\sum\limits_{j=0}^{2n-1}\mu(t_j)\bigg(\frac{\partial}{\partial\nu}L_{1}(t,t_j) + 1\bigg), \quad t\in[0;2\pi]
+\end{equation*}
+
+\begin{equation*}
+(T_{2,n}\mu)(t)=\frac{1}{2n}\sum\limits_{j=0}^{2n-1}\mu(t_j)L_{2}(t,t_j), \quad t\in[0;2\pi]
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+Нехай оператори $A$ та $A_{n}$ задають системи рівнянь:
+\begin{equation*}
+A=\left[
+\begin{array}{cc}
+S_{1}&T_{1}\\
+T_{2}&S_{2}
+\end{array}
+\right]\quad
+A_{n}=\left[
+\begin{array}{cc}
+S_{1,n}&T_{1,n}\\
+T_{2,n}&S_{2,n}
+\end{array}
+\right].
+\end{equation*}
+\hspace*{\parindent}Розв'язок операторного рівняння
+\begin{equation*}
+A\mu=F,
+\end{equation*}
+де 
+\begin{equation*}
+\mu=\left[
+\begin{array}{c}
+\mu_{1}\\
+\mu_{2}
+\end{array}
+\right]\quad
+F=\left[
+\begin{array}{c}
+f_{1}\\
+f_{2}
+\end{array}
+\right]
+\end{equation*}
+апроксимується через розв'язок апроксимаційного рівняння
+\begin{equation*}
+A_{n}\mu_{n}=F.
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+Для збіжних квадратурних формул послідовність операторів $(A_{n})$ колективно компактна і поточково збіжна:
+\begin{equation*}
+A_{n}\varphi\rightarrow A\varphi, \ n\to\infty \quad \forall\varphi\in C(\Gamma_{1})\times C(\Gamma_{2}).
+\end{equation*}
+
+
+\end{frame}
+
+
+\begin{frame}
+Для достатньо великого n система (2.9) має єдиний розв'язок і має місце оцінка похибки:
+\begin{equation*}
+\Vert\mu_{n}-\mu\Vert\le M\Vert A_{n}\mu-A\mu\Vert_{\infty}, \quad M>0.
+\end{equation*}
+\end{frame}
+\section{Чисельні результати}
+\begin{frame}
+Нехай $a=2$, $b=1$. Кількість вузлів на кожному поділі, по $x$ і по $y$, виберемо $n+1 = 6$. Точність $\varepsilon = 0,000001$.
+\begin{table}[h]
+\caption{Результати досліджень}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Номер вузла & Наближене значення&Точне значення& Похибка \\
+\hline
+(1,3)&4,5585408 &4,56&0,0014592\\
+(1,4)&5,0383872 &5,04&0,0016128\\
+(1,5)&5,990802 &6&0,001920\\
+(2,0)&11,99616 &12&0,003840\\
+(2,1)&9,6769024 &9,68&0,003097\\
+(2,2)&7,5175936 &7,52&0,002306\\
+(2,3)&5,5182336 &5,52&0,0017664\\
+(2,4)&3,6788224 &3,68&0,0011776\\
+(2,5)&1,99936 &2&0,000639\\
+(3,0)&17,99424 &18&0,00575995\\
+(3,1)&14,3143176 &14,32&0,0045824\\
+(4,0)&23,99232 &24&0,007680\\
+(4,1)&18,9539328 &18,96&0,0060672\\
+(4,2)&13,4356992 &13,44&0,004300\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\end{frame}
+
+\section{Використана література}
+\begin{frame}
+\frametitle{Використана література}
+\renewcommand{\bibname}{Список використаної літератури}
+\begin{thebibliography}{99}
+
+\bibitem{Kress}
+\emph{Kress R.} Linear Integral Equations /R.Kress. - Heidelberg:Springer -Velag, 1999. - 75-101
+
+\bibitem{Chapko}
+\emph{Chapko R.} On the numerical solution of a cauchy problem for the laplace equation via a direct integral equation approach. / Roman Chapko, B. Tomas Johansson // Inverse Problems and Imaging - 2012 - Volume 6, No. 1, 25–38
+\end{thebibliography}
+
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\Huge{\textcolor{orange}{Дякую за увагу!}}
+\end{center}
+\end{frame}
+
+\end{document} 
